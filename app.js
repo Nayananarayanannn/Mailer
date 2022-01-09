@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path")
 const app= express();
 const nodemailer= require("nodemailer")
+require('dotenv').config()
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -26,8 +27,8 @@ async function main() {
       service:"gmail",
       secure: false, // true for 465, false for other ports
       auth: {
-        user: "testingnayana@gmail.com", // generated ethereal user
-        pass: "Testing@123", // generated ethereal password
+        user: process.env.mail, // generated ethereal user
+        pass: process.env.pwd, // generated ethereal password
       },
     });
   
