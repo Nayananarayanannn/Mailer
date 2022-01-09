@@ -45,13 +45,9 @@ async function main() {
         else{
             res.sendFile(path.join(__dirname, 'public/success.html'))
         }
-    });
-  
-    
-  }
-  
+    });    
+  }  
   main().catch(console.error);
-
 })
 
 
