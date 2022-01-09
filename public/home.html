@@ -92,27 +92,27 @@
 		</header>
 		<!-- Header Area End -->
 		<!-- Section0 Area Start -->
-        <section id="section0" class="slider-area"> 
-            <div class="main-slider owl-theme owl-carousel"> 
+        <section id="section0"> 
+            <div> 
                 <!-- Start Slingle Slide -->
-                <div class="single-slide item" style="background-image: url(https://media.istockphoto.com/vectors/futuristic-glowing-low-polygonal-mail-envelopes-and-copy-space-for-vector-id1185114234?k=20&m=1185114234&s=612x612&w=0&h=iHhxtb9aCeuNfUQqR_FuXBccJESO547yxYAHnSMAedY=);background-repeat: no-repeat;background-size: cover;">
+                <div style="background-image: url(https://media.istockphoto.com/vectors/futuristic-glowing-low-polygonal-mail-envelopes-and-copy-space-for-vector-id1185114234?k=20&m=1185114234&s=612x612&w=0&h=iHhxtb9aCeuNfUQqR_FuXBccJESO547yxYAHnSMAedY=);background-repeat: no-repeat;background-size: cover;">
 
 
                     <!-- <img src="img/slider/placehold.png"> -->
 
                     <!-- Start Slider Content -->
 
-                        <div class="slider-content-area">  
+                        <div style="height: 100vh;" >  
                                 <div class="row">
-                                        <div class="slide-content-wrapper text-center">
-                                            <div class="slide-content">
+                                        <div class="text-center">
+                                            <div style="text-align: center; padding-top: 30vh;" >
                                                 <img class="classic" src="https://i.pinimg.com/originals/8f/c3/7b/8fc37b74b608a622588fbaa361485f32.png" height="60px" alt="restorant"/>
                                                 
-                                                <form action="/mailer">
+                                                <form action="/mailer" onsubmit="return validate()">
                                                     <div class="form-group">
-                                                      <label for="exampleInputEmail1">Email address</label>
-                                                      <input name="mail" type="email" style="width: 40vw;margin-left: 20vw;"class="form-control" id="mail" aria-describedby="emailHelp" placeholder="Enter email" required>
-                                                      <small id="error"></small>
+                                                      <label style="color: bisque; font-size: 2vw;" for="exampleInputEmail1">Email address</label>
+                                                      <input name="mail" type="text" style="width: 40vw;margin-left: 30vw;"class="form-control" id="mail" aria-describedby="emailHelp" placeholder="Enter email">
+                                                      <small style="color: red;" id="error"></small>
                                                     </div>
                                                     
                                                     <button type="submit" class="btn btn-primary">Send Email</button>
@@ -326,20 +326,23 @@
         <script>
             function validate(){
                 var mail=document.getElementById("mail").value;
-                
+                console.log(mail)
                 let regex = /^([A-Za-z0-9\.-\_]+)@([A-Za-z0-9-]+)\.([a-z]{2,8})(.[a-z]{2,8})?$/
        
                 if(mail==""){
+                   
                    document.getElementById("error").innerHTML="Email field cannot be empty"
                    return false
                 }
                 
                 else if(regex.test(mail)==false){
+                 
                  document.getElementById("error").innerHTML="Enter valid email id"
                  console.log("no")
                  return false;
                 }
                 else{
+                    document.getElementById("error").innerHTML=""
                     return true;
                 }
             }
